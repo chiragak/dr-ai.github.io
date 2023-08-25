@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Diabetic Retinopathy Prediction</title>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-/>
-<link rel="stylesheet" href="./style.css">
+    <title>Diabetic Retinopathy Classifier</title>
 </head>
 <body>
-<div class="container">
-  <input type="file" id="image-upload" accept="image/*" />
-  <label for="image-upload"
-    ><i class="fa-solid fa-upload"></i>&nbsp; Upload Retina Image
-  </label>
-  <div id="loader"></div>
-  <div id="result"></div>
-  <button id="submit">Predict</button>
-</div>
+    <h1>Diabetic Retinopathy Classifier</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" />
+        <button type="submit">Upload and Classify</button>
+    </form>
+    <div id="result"></div>
 
-<!-- Script -->
-<script src="./script.js"></script>
+    <script>
+        document.getElementById("upload-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const response = await fetch("/classify", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+            document.getElementById("result").innerText = `Classification: ${result.classification}`;
+        });
+    </script>
 </body>
 </html>
