@@ -4,9 +4,9 @@ const result = document.getElementById('result');
 const loader = document.getElementById('loader');
 
 // Construct the Vertex AI endpoint URL
-const endpointId = "YOUR_ENDPOINT_ID";
+const endpointId = "5043330094236434432"; // Update with your actual endpoint ID
 const region = "us-central1";
-const projectId = "YOUR_PROJECT_ID";
+const projectId = "714552415904"; // Update with your actual project ID
 const endpointUrl = `https://${region}-${projectId}.cloudai.endpoints.${projectId}.cloud.goog/${endpointId}`;
 
 imageUpload.addEventListener('change', async (e) => {
@@ -30,6 +30,7 @@ imageUpload.addEventListener('change', async (e) => {
       result.textContent = `Predicted class: ${predictedClass}`;
       result.style.color = 'green';
     } catch (error) {
+      console.error('Error making prediction:', error);
       result.textContent = 'Error making prediction';
       result.style.color = 'red';
     } finally {
