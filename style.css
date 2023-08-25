@@ -1,101 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* styles.css */
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    background-color: #a4b7e3;
-  }
-  .container {
-    background-color: #ffffff;
-    width: 60%;
-    min-width: 27.5em;
-    padding: 3.12em 1.87em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    box-shadow: 0 1.25em 3.43em rgba(0, 0, 0, 0.08);
-    border-radius: 2.5em;
-  }
-  .container:hover {
-    transition: opacity 2s;
-    background-color: #ffffff;
-    width: 60%;
-    min-width: 27.5em;
-    padding: 3.12em 1.87em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    box-shadow: 0 1.25em 3.43em rgba(0, 0, 0, 0.08);
-    border-radius: 2.5em;
-    border: 4px dashed #025bee;
-    box-shadow: 10px 10px 5px #025bee;
-  }
-  input[type="file"] {
-    display: none;
-  }
-  label {
-    display: block;
-    position: relative;
-    background-color: #025bee;
-    color: #ffffff;
-    font-size: 1.1em;
-    text-align: center;
-    width: 16em;
-    padding: 1em 0;
-    border-radius: 0.3em;
-    margin: 0 auto 1em auto;
-    cursor: pointer;
-  }
-  #image-display {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1.25em;
-    flex-wrap: wrap;
-  }
-  #image-display figure {
-    width: 45%;
-  }
-  #image-display img {
-    width: 100%;
-  }
-  #image-display figcaption {
-    font-size: 0.8em;
-    text-align: center;
-    color: #5a5861;
-  }
-  .active {
-    border: 0.2em dashed #025bee;
-  }
-  #error {
-    text-align: center;
-    color: #ff3030;
-  }
-  /* ... Existing styles ... */
+#result {
+  font-weight: bold;
+  margin: 20px 0; 
+}
 
-#submit-button {
-    background-color: #025bee;
-    color: #ffffff;
-    font-size: 1.1em;
-    padding: 0.8em 2em;
-    border: none;
-    border-radius: 0.3em;
-    cursor: pointer;
-    margin: 1em auto;
-    display: block;
-    transition: background-color 0.3s ease;
-  }
-  
-  #submit-button:hover {
-    background-color: #003ca8;
-  }
-  
-  
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #555; 
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

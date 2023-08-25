@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Diabetic Retinopathy Classifier</title>
+  <title>Image Classification</title>
+  
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Diabetic Retinopathy Classifier</h1>
-    <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" />
-        <button type="submit">Upload and Classify</button>
-    </form>
-    <div id="result"></div>
 
-    <script>
-        document.getElementById("upload-form").addEventListener("submit", async function (e) {
-            e.preventDefault();
+  <h1>Image Classification App</h1>
+  
+  <img id="selected-image" width="500" height="300" />
+  
+  <input type="file" id="image-upload" accept="image/*" onchange="loadImage(event)">
+  
+  <button id="submit" onclick="predictImage()">Predict</button>
+  
+  <div id="loader" class="loader" style="display:none;"></div>
 
-            const formData = new FormData(this);
-            const response = await fetch("https://us-central1-PROJECT_ID.cloud-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/endpoints/ENDPOINT_ID:predict", {
-                method: "POST",
-                body: formData,
-            });
+  <div id="result"></div>
 
-            const result = await response.json().catch(() => null);
+  <script src="script.js"></script>
 
-            if (result) {
-                document.getElementById("result").innerText = `Classification: ${result.classification}`;
-            } else {
-                document.getElementById("result").innerText = "Error processing the image.";
-            }
-        });
-    </script>
 </body>
 </html>
