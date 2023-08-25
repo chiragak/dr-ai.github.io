@@ -4,7 +4,7 @@ const result = document.getElementById('result');
 const loader = document.getElementById('loader');
 
 // Construct the Vertex AI endpoint URL
-const endpointId = "5043330094236434432";
+const endpointId = "YOUR_ENDPOINT_ID";
 const region = "us-central1";
 const projectId = "YOUR_PROJECT_ID";
 const endpointUrl = `https://${region}-${projectId}.cloudai.endpoints.${projectId}.cloud.goog/${endpointId}`;
